@@ -36,8 +36,38 @@
       Returns true if tString represents the text of a white space text
       node and false if it doesn't
 */
+window.onload = makeTree;
 
+var nodeCount = 0;
+var elemCount = 0;
+var textCount = 0;
+var wsCount = 0;
 
+function makeTree() {
+      var aaside = document.createElement("aside");
+      aaside.setAttribute("id", "treeBox");
+      var h1 = document.createElement("h1");
+      var aText = document.createTextNode("Node Tree");
+      h1.appendChild(aText);
+      aaside.appendChild(h1);
+      document.getElementById("main").appendChild(aaside);
+
+      var nodeList = document.createElement("ol");
+      aaside.appendChild(nodeList);
+
+      var sourceArticle = document.querySelectorAll("#mainarticle");
+
+      makeBranches(sourceArticle, nodeList);
+
+}
+
+function makeBranches(treeNode, nestedList) {
+      nodeCount += 1;
+      var liElem = document.createElement("li");
+      var spanElem = document.createElement("span");
+      liElem.appendChild(spanElem);
+      nestedList.appendChild(liElem);
+}
 
 
 
